@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #FFD700;
+    display: flex;
+    align-items: center;
+    & * {
+        flex: 1;
+    }
+}
+
+header h1{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.imagem-header img{
+    width: 150px;
+}
+
+.main-index{
+    margin: 0 auto;
+    justify-content: center;
+    padding: 30px;
+    max-width: 550px;
+}
+
+.formMorador{
+    background-color: #FFD700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.formMorador h2{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form-div label{
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.form-div input{
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    width: 350px;
+    outline: none;
+    padding: 15px;
+}
+
+.form-div select{
+    width: 350px;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.button-form{
+    width: 110px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #d75413;
+    color: white;
+    font-size: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
