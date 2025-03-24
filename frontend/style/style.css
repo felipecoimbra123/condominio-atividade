@@ -42,6 +42,22 @@ header h1{
     border-radius: 10px;
 }
 
+.formCarro {
+    background-color: #FFD700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.formCarro h2{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
 .formMorador h2{
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
