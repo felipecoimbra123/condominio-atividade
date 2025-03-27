@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const connection = require('./connection.js');
+const connection = require('./db_config.js');
 const app = express();
 
 app.use(cors());
@@ -9,9 +9,9 @@ app.use(express.json());
 const port = 3030;
 
 app.post('/morador/cadastro', (req, res) => {
-    const { nome, bloco, apartamento, telefone, email } = req.body;
-    const userQuery = 'INSERT INTO morador (nome, bloco, apartamento, telefone, email) VALUES (?, ?, ?, ?, ?)';
-    connection.query(userQuery, [nome, bloco, apartamento, telefone, email], (err) => {
+    const { nome, bloco, apartamento, telefone, email, status} = req.body;
+    const userQuery = 'INSERT INTO morador (nome, bloco, apartamento, telefone, email, status) VALUES (?, ?, ?, ?, ?, ?)';
+    connection.query(userQuery, [nome, bloco, apartamento, telefone, email, status], (err) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao cadastrar usuário.', error: err.sqlMessage });
         }
@@ -46,11 +46,6 @@ app.delete('/veiculos/:id', (req, res) => {
         res.json({ success: true, message: "Carro removido com sucesso!" });
     });
 });
-
-
-
-
-
 
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
