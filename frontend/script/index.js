@@ -1,4 +1,4 @@
-const formMorador = document.getElementById('formMorador');
+const formMorador = document.querySelector('.formMorador');
     if (formMorador) 
       {
         formMorador.addEventListener('submit', async (e) => {
@@ -8,31 +8,32 @@ const formMorador = document.getElementById('formMorador');
           const nome = document.getElementById('nome').value;
           const bloco = document.getElementById('bloco').value;
           const apartamento = document.getElementById('apartamento').value;
-          const contato = document.getElementById('contato').value;
+          const telefone = document.getElementById('telefone').value;
+          const email = document.getElementById('email').value;
+          const status = document.getElementById('status').value;
 
-          if (!nome || !bloco || !apartamento || !contato) {
-            alert("Todos os campos são obrigatórios!");
-            return;
-          }
+          console.log({ nome, bloco, apartamento, telefone, email, status});
           
           const response = await fetch('http://localhost:3030/morador/cadastro', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, bloco, apartamento, contato})
+            body: JSON.stringify({ nome, bloco, apartamento, telefone, email, status})
         });
-
+        
         const result = await response.json();
 
+        console.log(result);
+        
         if (result.success) {
-            alert("Cadastro realizado com sucesso!");
-            window.location.href = "cadCarro.html";
+          alert("Cadastro realizado com sucesso!");
+          window.location.href = "cadCarro.html";
         } else {
-            alert("Erro no cadastro!");
+          alert("Erro no cadastro!");
         }
       });
-}
+    }
 
-const formCarro = document.getElementById('formCarro');
+const formCarro = document.querySelector('.formCarro');
     if (formCarro) 
       {
         formCarro.addEventListener('submit', async (e) => {

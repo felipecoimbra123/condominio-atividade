@@ -4,24 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/frontend/style/style.css">
 </head>
 <body>
+
+        <header>
+        <div class="imagem-header">
+            <img src="/assets/header-image.png" alt="">
+        </div>
+        <h1>Edificio Master</h1>
+    </header>
     
-    <main class="main-index main-listagem">
-        <a class="link-car-register" href="car-register.html">Cadastrar novo veículo</a>
+    <main class="main-listagem">
+        <h1>Listagem de veículo</h1>
+        <a class="link-car-register" href="cadCarro.html">Cadastrar novo veículo</a>
         <table>
             <thead>
                 <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Bloco</th>
-                    <th scope="col">Apartamento</th>
-                    <th scope="col">Contato</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Vaga</th>
+                    <th scope="col">Acoes</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h1>Listagem de morador</h1>
+        <a class="link-car-register" href="index.html">Cadastrar novo morador</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Bloco</th>
+                    <th>Apartamento</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
     </main>
-
+    <script src="/frontend/script/index.js"></script>
 </body>
 </html>

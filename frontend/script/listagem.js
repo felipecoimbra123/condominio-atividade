@@ -1,5 +1,5 @@
-async function load() {
-    const response = await fetch('http://localhost:3000/moradorros')
+async function loadMorador() {
+    const response = await fetch('http://localhost:3030/moradores')
     const data = await response.json()
     const tbody = document.querySelector('tbody')
   
@@ -27,5 +27,5 @@ async function load() {
   }
   
   window.onload = () => {
-    load()
+    loadMorador()
   }
