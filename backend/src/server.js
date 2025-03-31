@@ -19,18 +19,18 @@ app.post('/morador/cadastro', (req, res) => {
     });
 });
 
-app.post('/veiculos/cadastro', (req, res) => {
-    const { placa, modelo, cor, vaga } = req.body;
-    const userQuery = 'INSERT INTO veiculo (placa modelo, cor, vaga) VALUES (?, ?, ?, ?)';
-    connection.query(userQuery, [placa, modelo, cor, vaga], (err) => {
+app.post('/veiculo/cadastro', (req, res) => {
+    const { placa, modelo, cor, box } = req.body;
+    const userQuery = 'INSERT INTO veiculo (placa, modelo, cor, box) VALUES (?, ?, ?, ?)';
+    connection.query(userQuery, [placa, modelo, cor, box], (err) => {
         if (err) {
-            return res.status(500).json({ success: false, message: 'Erro ao cadastrar usuário.', error: err.sqlMessage });
+            return res.status(500).json({ success: false, message: 'Erro ao cadastrar veículo.', error: err.sqlMessage });
         }
         res.json({ success: true, message: 'Cadastro realizado com sucesso!' });
     });
 });
 
-app.get('/veiculos', (req, res) => {
+app.get('/veiculo', (req, res) => {
     const userQuery = 'SELECT * FROM veiculo'
     connection.query(userQuery, (err, results) => {
         if(err) {
@@ -40,7 +40,7 @@ app.get('/veiculos', (req, res) => {
     })
 })
 
-app.put('/veiculos/:id', (req, res) => {
+app.put('/veiculo/:id', (req, res) => {
     const { id } = req.params
     const { placa, modelo, cor, vaga } = req.body
 
@@ -54,7 +54,7 @@ app.put('/veiculos/:id', (req, res) => {
 })
 
 
-app.delete('/veiculos/:id', (req, res) => {
+app.delete('/veiculo/:id', (req, res) => {
     const { id } = req.params
     const query = 'DELETE FROM veiculo WHERE id = ?'
     connection.query(query, [id], (err) => {
