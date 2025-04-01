@@ -19,6 +19,40 @@ app.post('/morador/cadastro', (req, res) => {
     });
 });
 
+app.get('/morador', (req, res) => {
+    const query = 'SELECT * FROM morador'
+    connection.query(query, (err, results) => {
+        if(err) {
+            return res.status(500).json({ success: false, err, message: 'Erro ao buscar morador' })
+        }
+        res.json({ success: true, morador: results })
+    })
+})
+
+app.put('/morador/:id', (req, res) => {
+    const { id } = req.params
+    const { nome, bloco, apartamento, telefone, email, status } = req.body
+
+    const query = 'UPDATE morador SET nome = ?, bloco = ?, apartamento = ?, telefone = ?, email = ?, status = ?'
+    connection.query(query, [nome, bloco, apartamento, telefone, email, status, id], (err) => {
+        if(err) {
+            return res.status(500).json({ success: false, err, message: 'Erro ao editar morador' })
+        }
+        res.json({ success: true, message: 'Morador editado com sucesso!' })
+    })
+})
+
+app.delete('/morador/:id', (req, res) => {
+    const { id } = req.params
+    const query = 'DELETE FROM morador WHERE id = ?'
+    connection.query(query, [id], (err) => {
+        if(err) {
+            return res.status(500).json({ success: false, err, message: 'Erro ao deletar morador' })
+        }
+        res.json({ success: true, message: 'Morador deletado com sucesso!' })
+    })
+})
+
 app.post('/veiculo/cadastro', (req, res) => {
     const { placa, modelo, cor, box } = req.body;
     const userQuery = 'INSERT INTO veiculo (placa, modelo, cor, box) VALUES (?, ?, ?, ?)';
@@ -45,7 +79,7 @@ app.put('/veiculo/:id', (req, res) => {
     const { placa, modelo, cor, vaga } = req.body
 
     const query = 'UPDATE veiculo SET placa = ?, modelo = ?, cor = ?, vaga = ?'
-    connection.query(query, [placa, modelo, cor, vaga, id], (err) =>{
+    connection.query(query, [placa, modelo, cor, vaga, id], (err) => {
         if(err) {
             return res.status(500).json({ success: false, err, message: 'Erro ao editar veículo'})
         }
