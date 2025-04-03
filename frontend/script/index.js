@@ -26,7 +26,7 @@ const formMorador = document.querySelector('.formMorador');
         
         if (result.success) {
           alert("Cadastro realizado com sucesso!");
-          window.location.href = "cadCarro.html";
+          window.location.href = "listagem.html";
         } else {
           alert("Erro no cadastro!");
         }

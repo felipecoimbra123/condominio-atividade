@@ -20,16 +20,18 @@ async function loadMorador() {
         <td>
           <button class='btn-delete-morador' onclick='deleteMorador(${morador.id})'>Excluir</button>
           <button class='btn-edit-morador' onclick='editMorador(${morador.id})'>Editar</button>: "Nenhuma Ação Disponível"
+          <button class='btn-add-veiculo' onclick='addVeiculo(${morador.id});'>Adicionar veículo</button>
         }
         </td>`
         
       tbody.appendChild(row)
     });
   }
-  
-  window.onload = () => {
-    loadMorador()
-  }
+
+function addVeiculo(moradorId) {
+  localStorage.setItem("morador", moradorId);
+  window.location.href = "cadCarro.html";
+}
 
 async function deleteMorador(id) {
   await fetch(`https://localhost:3030/morador/${id}`, {
@@ -63,7 +65,6 @@ async function loadVeiculo() {
     tbody.innerHTML = ''
   }
 
-
   data.veiculo.forEach(veiculo => {
     const row = document.createElement('tr')
     row.innerHTML = `
@@ -72,18 +73,15 @@ async function loadVeiculo() {
       <td>${veiculo.cor}</td>
       <td>${veiculo.vaga}</td>
       <td>
-      ${veiculo.morador === JSON.parse(localStorage.getItem('morador'))?.id ?`}
+      
         <button class='btn-delete-veiculo' onclick='deleteVeiculo(${veiculo.id})'>Excluir</button>
-        <button class='btn-edit-veiculo' onclick='editVeiculo(${veiculo.id})'>Editar</button>`: "Nenhuma Ação Disponível"
-      }
+        <button class='btn-edit-veiculo' onclick='editVeiculo(${veiculo.id})'>Editar</button>
+        
+  
       </td>`
       
     tbody.appendChild(row)
   });
-}
-
-window.onload = () => {
-  loadVeiculo()
 }
 
 async function deleteVeiculo(id) {
@@ -104,5 +102,10 @@ async function editVeiculo(id){
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({placa, modelo, cor, vaga})
   })
+  loadVeiculo()
+}
+
+window.onload = () => {
+  loadMorador()
   loadVeiculo()
 }

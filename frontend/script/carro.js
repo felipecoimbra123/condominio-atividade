@@ -9,7 +9,8 @@ const formCarro = document.querySelector('.formCarro');
           const modelo = document.getElementById('modelo').value;
           const cor = document.getElementById('cor').value;
           const numVaga = document.getElementById('vaga').value;
-          const dono = JSON.parse(localStorage.getItem('morador').id)
+          const moradorStorage = localStorage.getItem('morador');
+          const dono = moradorStorage ? JSON.parse(moradorStorage).id : null;
 
           if (!placa || !modelo || !cor || !numVaga) {
             alert("Todos os campos são obrigatórios!");
