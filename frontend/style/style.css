@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 *{
     margin: 0;
@@ -104,6 +105,13 @@ header h1{
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.button-form:hover{
+    background-color: #d75413c3;
+    color: black;
+    cursor: pointer;
 }
 
 table{
@@ -116,12 +124,10 @@ table{
 
 th, td{
     border: 1px solid black;
-    padding: 40px;
-    width: 150px;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
+    padding: 25px;
+    width: 100px;
+    font-family: 'Lato', sans-serif;
     font-size: 20px;
-    font-family: bold;
 }
 
 .main-listagem{
@@ -130,4 +136,16 @@ th, td{
     align-items: center;
     justify-content: center;
     gap: 30px;
+}
+
+.main-listagem h1{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.link-car-register{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
 }
