@@ -55,8 +55,8 @@ app.delete('/morador/:id', (req, res) => {
 
 app.post('/veiculo/cadastro', (req, res) => {
     const { placa, modelo, cor, box } = req.body;
-    const userQuery = 'INSERT INTO veiculo (placa, modelo, cor, box) VALUES (?, ?, ?, ?)';
-    connection.query(userQuery, [placa, modelo, cor, box], (err) => {
+    const userQuery = 'INSERT INTO veiculo (placa, modelo, cor, box, morador_id) VALUES (?, ?, ?, ?, ?)';
+    connection.query(userQuery, [placa, modelo, cor, box, dono], (err) => {
         if (err) {
             return res.status(500).json({ success: false, message: 'Erro ao cadastrar veículo.', error: err.sqlMessage });
         }

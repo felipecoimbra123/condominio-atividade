@@ -2,10 +2,8 @@ async function loadMorador() {
     const response = await fetch('http://localhost:3030/morador')
     const data = await response.json()
     const tbody = document.querySelector('.morador-tbody')
-  
-    if (tbody.innerHTML ?? false) {
-      tbody.innerHTML = ''
-    }
+    tbody.innerHTML = ''
+
   
   
     data.morador.forEach(morador => {
@@ -34,7 +32,7 @@ function addVeiculo(moradorId) {
 }
 
 async function deleteMorador(id) {
-  await fetch(`https://localhost:3030/morador/${id}`, {
+  await fetch(`http://localhost:3030/morador/${id}`, {
     method: 'DELETE'
   })
   loadMorador()
@@ -47,7 +45,7 @@ async function editMorador(id){
   const telefone = prompt("Digite o novo telefone: ")
   const email = prompt("Digite o novo email: ")
 
-  await fetch(`https://localhost:3030/morador/${id}`, {
+  await fetch(`http://localhost:3030/morador/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({nome, bloco, apartamento, telefone, email})
@@ -85,7 +83,7 @@ async function loadVeiculo() {
 }
 
 async function deleteVeiculo(id) {
-  await fetch(`https://localhost:3030/veiculo/${id}`, {
+  await fetch(`http://localhost:3030/veiculo/${id}`, {
     method: 'DELETE'
   })
   loadVeiculo()
@@ -97,7 +95,7 @@ async function editVeiculo(id){
   const cor = prompt("Digite a nova cor: ")
   const vaga = prompt("Digite a nova vaga: ")
 
-  await fetch(`https://localhost:3030/veiculo/${id}`, {
+  await fetch(`http://localhost:3030/veiculo/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({placa, modelo, cor, vaga})

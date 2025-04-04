@@ -8,11 +8,10 @@ const formCarro = document.querySelector('.formCarro');
           const placa = document.getElementById('placa').value;
           const modelo = document.getElementById('modelo').value;
           const cor = document.getElementById('cor').value;
-          const numVaga = document.getElementById('vaga').value;
-          const moradorStorage = localStorage.getItem('morador');
-          const dono = moradorStorage ? JSON.parse(moradorStorage).id : null;
+          const box = document.getElementById('vaga').value;
+          const dono = localStorage.getItem('morador') || null;
 
-          if (!placa || !modelo || !cor || !numVaga) {
+          if (!placa || !modelo || !cor || !box) {
             alert("Todos os campos são obrigatórios!");
             return;
           }
@@ -20,7 +19,7 @@ const formCarro = document.querySelector('.formCarro');
           const response = await fetch('http://localhost:3030/veiculo/cadastro', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ placa, modelo, cor, numVaga, dono })
+            body: JSON.stringify({ placa, modelo, cor, box, dono })
         });
 
         const result = await response.json();
