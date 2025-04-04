@@ -17,9 +17,8 @@ async function loadMorador() {
         <td>${morador.status}</td>
         <td>
           <button class='btn-delete-morador' onclick='deleteMorador(${morador.id})'>Excluir</button>
-          <button class='btn-edit-morador' onclick='editMorador(${morador.id})'>Editar</button>: "Nenhuma Ação Disponível"
+          <button class='btn-edit-morador' onclick='editMorador(${morador.id})'>Editar</button>
           <button class='btn-add-veiculo' onclick='addVeiculo(${morador.id});'>Adicionar veículo</button>
-        }
         </td>`
         
       tbody.appendChild(row)

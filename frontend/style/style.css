@@ -130,6 +130,11 @@ th, td{
     font-size: 20px;
 }
 
+th{
+    background-color: gray;
+    color: white;
+}
+
 .main-listagem{
     display: flex;
     flex-direction: column;
@@ -148,4 +153,43 @@ th, td{
     font-size: 20px;
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
+}
+
+.btn-delete-morador{
+    background-color: #d75413;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 140px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.btn-edit-morador{
+    background-color: #83e509;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 140px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.btn-add-veiculo{
+    background-color: #FFD700;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 140px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
