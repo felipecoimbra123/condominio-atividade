@@ -43,11 +43,12 @@ async function editMorador(id){
   const apartamento = prompt("Digite o novo apartamento: ")
   const telefone = prompt("Digite o novo telefone: ")
   const email = prompt("Digite o novo email: ")
+  const status = prompt("Digite o seu status: ")
 
   await fetch(`http://localhost:3030/morador/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({nome, bloco, apartamento, telefone, email})
+    body: JSON.stringify({nome, bloco, apartamento, telefone, email, status})
   })
   loadMorador()
 }
@@ -58,9 +59,7 @@ async function loadVeiculo() {
   const data = await response.json()
   const tbody = document.querySelector('.veiculo-tbody')
 
-  if (tbody.innerHTML ?? false) {
-    tbody.innerHTML = ''
-  }
+  tbody.innerHTML = ''
 
   data.veiculo.forEach(veiculo => {
     const row = document.createElement('tr')
@@ -69,6 +68,7 @@ async function loadVeiculo() {
       <td>${veiculo.modelo}</td>
       <td>${veiculo.cor}</td>
       <td>${veiculo.vaga}</td>
+      <td>${veiculo.dono}</td>
       <td>
       
         <button class='btn-delete-veiculo' onclick='deleteVeiculo(${veiculo.id})'>Excluir</button>
@@ -93,11 +93,12 @@ async function editVeiculo(id){
   const modelo = prompt("Digite o novo modelo: ")
   const cor = prompt("Digite a nova cor: ")
   const vaga = prompt("Digite a nova vaga: ")
+  const dono = prompt("Digite o ID do novo dono: ")
 
   await fetch(`http://localhost:3030/veiculo/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({placa, modelo, cor, vaga})
+    body: JSON.stringify({placa, modelo, cor, vaga, dono})
   })
   loadVeiculo()
 }

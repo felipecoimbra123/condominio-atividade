@@ -193,3 +193,29 @@ th{
     margin-bottom: 10px;
     cursor: pointer;
 }
+
+.btn-delete-veiculo{
+    background-color: #d75413;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 140px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.btn-edit-veiculo{
+    background-color: #83e509;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 140px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
