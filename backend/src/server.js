@@ -54,7 +54,7 @@ app.delete('/morador/:id', (req, res) => {
 })
 
 app.post('/veiculo/cadastro', (req, res) => {
-    const { placa, modelo, cor, box } = req.body;
+    const { placa, modelo, cor, box, dono } = req.body;
     const userQuery = 'INSERT INTO veiculo (placa, modelo, cor, box, morador_id) VALUES (?, ?, ?, ?, ?)';
     connection.query(userQuery, [placa, modelo, cor, box, dono], (err) => {
         if (err) {
